@@ -29,6 +29,16 @@
         </layout>
     </appender>
 
+    <appender name="SPLUNK_RAW_TCP" class="com.heyitworks.logback4splunk.SplunkRawTCPAppender">
+        <port>20975</port>
+        <host>logs5.splunkstorm.com</host>
+        <maxQueueSize>5MB</maxQueueSize>
+        <dropEventsOnQueueFull>true</dropEventsOnQueueFull>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-5level [%thread] %logger{5} [%file:%line] [%X{correlationId}] %msg%n</pattern>
+        </layout>
+    </appender>
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="SPLUNK_RAW_TCP" />
