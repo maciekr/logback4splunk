@@ -27,9 +27,27 @@
         </layout>
     </appender>
 
+    <appender name="SPLUNK_API" class="com.heyitworks.logback4splunk.SplunkApiAppender">
+        <url>https://api.splunkstorm.com/1/inputs/http</url>
+        <token>B3XpHxQqMfyblgsH8YFPG8py-AH0jJ_1HTQsMF-w0Ed4ln78mzBeMu0e1i0Mewi1id9OJ7icSrI=</token>
+        <projectId>6a0456fcc6d411e288891231390e9c34</projectId>
+
+        <source>logback4splunk-unitites</source>
+        <host>macieks-macbookpro</host>
+
+        <bufferMaxEvents>50</bufferMaxEvents>
+        <workerMaxThreads>2</workerMaxThreads>
+        <debugHttp>true</debugHttp>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-5level [%thread] %logger{5} [%file:%line] [%X{correlationId}] %msg%n</pattern>
+        </layout>
+    </appender>
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="SPLUNK_RAW_TCP" />
+        <!--<appender-ref ref="SPLUNK_RAW_TCP" />-->
+        <appender-ref ref="SPLUNK_API" />
     </root>
 
 </configuration>
