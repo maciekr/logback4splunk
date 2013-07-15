@@ -40,7 +40,7 @@
         <debugHttp>true</debugHttp>
 
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%-5level [%thread] %logger{5} [%file:%line] [%X{correlationId}] %msg%n</pattern>
+            <pattern>%-5level [%thread] %logger{5} [%X{correlationId}] %msg%n</pattern>
         </layout>
     </appender>
 
