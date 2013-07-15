@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class SplunkApiAppender extends AppenderBase<ILoggingEvent> {
 
-    private static final String SOURCE_TYPE = "generic_single_line";
+    private static final String SOURCE_TYPE = "storm_multi_line";
 
     private String url = "https://api.splunkstorm.com/1/inputs/http";
     private String username = "x";
