@@ -4,7 +4,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date %-5level [%thread] %logger{36} [%file:%line] [%X{correlationId}] %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS,UTC} %-5level [%thread] %logger{36} [%file:%line] [%X{correlationId}] %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -40,7 +40,7 @@
         <debugHttp>true</debugHttp>
 
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%-5level [%thread] %logger{5} [%X{correlationId}] %msg%n</pattern>
+            <pattern>%date{yyyy-MM-dd'T'HH:mm:ss.SSS,UTC} %-5level [%thread] %logger{5} [%X{correlationId}] %msg%n</pattern>
         </layout>
     </appender>
 
