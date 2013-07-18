@@ -26,8 +26,8 @@ public class SplunkApiAppender extends AppenderBase<ILoggingEvent> {
 
     private String url = "https://api.splunkstorm.com/1/inputs/http";
     private String username = "x";
-    private String token = "B3XpHxQqMfyblgsH8YFPG8py-AH0jJ_1HTQsMF-w0Ed4ln78mzBeMu0e1i0Mewi1id9OJ7icSrI=";
-    private String projectId = "6a0456fcc6d411e288891231390e9c34";
+    private String token = "YOUR_SPLUNKSTORM_API_TOKEN";
+    private String projectId = "YOUR_SPLUNKSTORM_PROJECT_ID";
     private String source = "logback4splunk";
     private String host = "default";
 
@@ -104,11 +104,13 @@ public class SplunkApiAppender extends AppenderBase<ILoggingEvent> {
         @Override
         public void run() {
             List<String> events = new LinkedList<String>();
-            eventBuffer.drainTo(events);
-            String payload = StringUtils.join(events, "\n");
-            webTarget
-                    .request()
-                    .post(Entity.entity(payload, MediaType.TEXT_PLAIN_TYPE));
+            eventBuffer.drainTo(events); 
+            if (events.size() > 0) {
+            	String payload = StringUtils.join(events, "\n");
+            	webTarget
+                	.request()
+                    	.post(Entity.entity(payload, MediaType.TEXT_PLAIN_TYPE));
+	    }
         }
     }
 
